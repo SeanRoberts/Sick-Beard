@@ -40,4 +40,6 @@ desktop.ini
 ehthumbs.db
 Thumbs.db
 .directory
-*~
+pid
+sickbeard_data
+pid/*
