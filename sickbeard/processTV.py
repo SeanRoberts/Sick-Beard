@@ -101,14 +101,12 @@ def processDir (dirName, nzbName=None, recurse=False):
 
     # process any files in the dir
     for cur_video_file_path in videoFiles:
-        returnStr += logHelper(u"This code is being run.")
         cur_video_file_path = ek.ek(os.path.join, dirName, cur_video_file_path)
 
         # prevent infinite auto process loop when KEEP_PROCESSED_DIR = true, by marking videos as processed
         if sickbeard.KEEP_PROCESSED_DIR:
             # check if file has already been processed - a .processed file will exist
             helper_file = helpers.replaceExtension(cur_video_file_path, "processed")
-            returnStr += logHelper(u"Helper file would be " + helper_file)
             if ek.ek(os.path.isfile, helper_file):
                 returnStr += logHelper(u"Processing skipped for " + cur_video_file_path + ": .processed file detected.")
                 continue
